@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {}
 
 # Password validation
@@ -142,8 +142,10 @@ if REDIS_CACHE_URL:
         "default": {
             "BACKEND": "django_redis.cache.RedisCache",
             "LOCATION": REDIS_CACHE_URL,
+            'TIMEOUT': 3600 * 24,  # 24 hours
             "OPTIONS": {
                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                'MAX_ENTRIES': 3000,
             },
             "KEY_PREFIX": "django_bookshelf_browser",
         },
