@@ -10,6 +10,7 @@ requests = "*"
 bs4 = "*"
 lxml = "*"
 whitenoise = "*"
+django-redis = "*"
 
 [dev-packages]
 flake8 = "*"
