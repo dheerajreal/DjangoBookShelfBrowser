@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 python-decouple = "*"
+requests = "*"
+bs4 = "*"
+lxml = "*"
 
 [dev-packages]
 
