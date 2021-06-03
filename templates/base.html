@@ -33,7 +33,7 @@
 
     <body>
 
-        <nav class="nav navbar mb-4 row pb-0 bg-info">
+        <nav class="shadow nav navbar mb-4 row pb-0 bg-info">
             <div class="container text-white mx-auto col-md-8 py-0">
                 <a href="{% url 'index' %}" class="nounderline">
                     <h1 class="d-inline text-white float-left px-3">Bookshelf browser</h1>
@@ -43,13 +43,15 @@
 
 
 
-        <div class="container">
+        <div class="container" style="min-height: 70vh;">
             {% block content %}
 
             {% endblock content %}
 
         </div>
-
+        <div class="container-fluid bg-info mt-5 py-5 text-center text-white">
+            <h5>Made with ❤️ and python</h5>
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
