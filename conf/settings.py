@@ -12,21 +12,21 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from decouple import Csv, config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3%!vm81zniy!0_$l&d&s#ewo@)%4j6$144thfuq^+&21h$a*2+'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+DEBUG = config('DEBUG', default=False, cast=bool)
+SECRET_KEY = config('SECRET_KEY', default="whatever_secret_key_for_prod")
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default="127.0.0.1 ,localhost ,0.0.0.0",
+    cast=Csv()
+)
 
 # Application definition
 
