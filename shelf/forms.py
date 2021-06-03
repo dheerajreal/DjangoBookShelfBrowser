@@ -7,7 +7,7 @@ class SearchForm(forms.Form):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Bookshelf Name", 
+                "placeholder": "Bookshelf Name",
                 "class": "form-control"
             }
         )

@@ -41,7 +41,7 @@ def parse_bookshelf_from_markup(markup: str = None) -> List:
     return book_list
 
 
-def get_book_list_from_shelf(shelf: str = None):
+def get_book_list_from_shelf(shelf: str = None) -> List:
     shelf_url = get_shelf_url(shelf=shelf)
     shelf_page = get_url_contents(shelf_url)
     book_list = parse_bookshelf_from_markup(shelf_page)
