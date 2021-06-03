@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="shadow card text-left mx-auto py-3 mt-5 col-md-8">
+  <h4 class="card-title text-center mb-0">Search Bookshelf</h4>
+  <div class="card-body ">
+
+
+      <form class="form" role="form" action="" method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+          <button type="submit" class="btn btn-block btn-info">Search</button>
+      </form>
+
+  </div>
+</div>
+
+
+
+{% endblock content %}
