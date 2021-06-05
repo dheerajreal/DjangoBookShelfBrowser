@@ -1,4 +1,4 @@
-name: run-test
+name: run-test-and-deploy
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
   #     - main
 
 jobs:
-  run-tests:
+  run-test-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source code
