@@ -135,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # cache stuff
 REDIS_CACHE_URL = config(
     'REDIS_CACHE_URL',
-    default="redis://127.0.0.1:6379/0",
+    default=None,
 )
 if REDIS_CACHE_URL:
     # cache backends
