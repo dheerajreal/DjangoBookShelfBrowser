@@ -21,7 +21,7 @@ jobs:
       - run: pip install flake8
       - run: flake8 . --max-line-length 120 --statistics --count --exclude  ".venv,.env,.git,__pycache__,docs,old,build,dist"
       - run: pip install -r requirements.txt
-      - run: python manage.py test
+      - run: coverage erase && coverage run ./manage.py test && coverage report
 
       - name: Deploy to Heroku
         env:

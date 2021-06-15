@@ -12,6 +12,8 @@ lxml = "*"
 whitenoise = "*"
 django-redis = "*"
 gunicorn = "*"
+coverage = "*"
+
 
 [dev-packages]
 flake8 = "*"
