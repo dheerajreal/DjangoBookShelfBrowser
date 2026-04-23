@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import shelf_view, index
+from shelf import views
 
 urlpatterns = [
-    path('', index, name="index"),
-    path('shelf/<slug:shelf>/', shelf_view, name="shelf_view"),
+    path("", views.index, name="index"),
+    path("shelf/<slug:shelf>/", views.shelf_view, name="shelf_view"),
 ]
