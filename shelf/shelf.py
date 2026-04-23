@@ -37,12 +37,16 @@ def _parse_bookshelf_from_markup(markup: str) -> list[dict[str, str]]:
         author = item.find(class_="authorName")
         shelf_description = str(item.find(class_="smallText").text[1:-1])
         image_url = str(item.find(class_="leftAlignedImage").find("img").get("src"))
+        author_url = str(author.get("href"))
+        book_url = str("https://www.goodreads.com" + book.get("href"))
+        book_name = str(book.text)
+        author_name = str(author.text)
 
         book_dict = {
-            "name": book.text,
-            "url": "https://www.goodreads.com" + book.get("href"),
-            "author": author.text,
-            "author_url": author.get("href"),
+            "name": book_name,
+            "author": author_name,
+            "url": book_url,
+            "author_url": author_url,
             "shelf_description": shelf_description,
             "image": image_url,
         }
