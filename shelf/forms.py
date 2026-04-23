@@ -6,9 +6,6 @@ class SearchForm(forms.Form):
         max_length=128,
         required=True,
         widget=forms.TextInput(
-            attrs={
-                "placeholder": "Bookshelf Name",
-                "class": "form-control"
-            }
-        )
+            attrs={"placeholder": "Bookshelf Name", "class": "form-control"}
+        ),
     )

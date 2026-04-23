@@ -16,15 +16,10 @@ class ShelfTest(SimpleTestCase):
 
     def test_index_form(self):
         search_term = "dog"
-        response = self.client.post(
-            reverse("index"), data={"shelf_name": search_term}
-        )
+        response = self.client.post(reverse("index"), data={"shelf_name": search_term})
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
-            response.url,
-            reverse(
-                "shelf_view", kwargs={"shelf": search_term}
-            )
+            response.url, reverse("shelf_view", kwargs={"shelf": search_term})
         )
         response = self.client.get(response.url)
         self.assertContains(response, search_term)
@@ -32,15 +27,10 @@ class ShelfTest(SimpleTestCase):
 
     def test_index_form2(self):
         search_term = "modern classics"
-        response = self.client.post(
-            reverse("index"), data={"shelf_name": search_term}
-        )
+        response = self.client.post(reverse("index"), data={"shelf_name": search_term})
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
-            response.url,
-            reverse(
-                "shelf_view", kwargs={"shelf": slugify(search_term)}
-            )
+            response.url, reverse("shelf_view", kwargs={"shelf": slugify(search_term)})
         )
         response = self.client.get(response.url)
         self.assertContains(response, slugify(search_term))
@@ -48,21 +38,13 @@ class ShelfTest(SimpleTestCase):
 
     def test_shelf(self):
         shelf_name = "classics"
-        response = self.client.get(
-            reverse(
-                "shelf_view", kwargs={"shelf": shelf_name}
-            )
-        )
+        response = self.client.get(reverse("shelf_view", kwargs={"shelf": shelf_name}))
         self.assertContains(response, shelf_name)
         self.assertContains(response, "Bookshelf browser")
 
     def test_shelf2(self):
         shelf_name = "sknfclzknfckdnfekiehgvfedkighfekbefejubgtoueljgb"
-        response = self.client.get(
-            reverse(
-                "shelf_view", kwargs={"shelf": shelf_name}
-            )
-        )
+        response = self.client.get(reverse("shelf_view", kwargs={"shelf": shelf_name}))
         self.assertContains(response, shelf_name)
         self.assertContains(response, "Bookshelf browser")
         self.assertContains(response, "Empty Bookshelf")

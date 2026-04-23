@@ -2,22 +2,24 @@ import bs4
 import requests
 
 
-
-class BookShelf():
-    def __init__(self, name:str) -> None:
+class BookShelf:
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def get_url(self) -> str:
         return f"https://www.goodreads.com/shelf/show/{self.name}"
 
     def fetch_text(self) -> str:
-        user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
-        headers = {'User-Agent': user_agent}
+        user_agent = (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/109.0.0.0 Safari/537.36"
+        )
+        headers = {"User-Agent": user_agent}
         response = requests.get(self.get_url(), headers=headers)
         if response.status_code == 200:
             return response.text
         return ""
-
 
     def parse(self) -> list[dict[str, str]]:
         shelf_page = self.fetch_text()
